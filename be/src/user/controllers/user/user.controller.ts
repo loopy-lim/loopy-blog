@@ -8,13 +8,13 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDto } from 'src/users/dtos/users/createUser.dto';
-import { FindUserDto } from 'src/users/dtos/users/findUser.dto';
-import { UsersService } from 'src/users/services/users/users.service';
+import { CreateUserDto } from 'src/user/dtos/users/createUser.dto';
+import { FindUserDto } from 'src/user/dtos/users/findUser.dto';
+import { UserService } from 'src/user/services/user/user.service';
 
 @Controller('user')
-export class UsersController {
-  constructor(private readonly userService: UsersService) {}
+export class UserController {
+  constructor(private readonly userService: UserService) {}
 
   @Get('')
   async getUsers() {
@@ -22,7 +22,9 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findUserById(@Param('id', ParseIntPipe) id: number): Promise<FindUserDto> {
+  async findUserById(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<FindUserDto> {
     return await this.userService.findUserById(id);
   }
 

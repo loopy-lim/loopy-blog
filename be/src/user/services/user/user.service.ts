@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities';
-import { CreateUserDto } from 'src/users/dtos/users/createUser.dto';
+import { CreateUserDto } from 'src/user/dtos/users/createUser.dto';
 import { Repository } from 'typeorm';
 import * as CryptoJs from 'crypto-js';
-import { FindUserDto } from 'src/users/dtos/users/findUser.dto';
-import { LoginUserDto } from 'src/users/dtos/users/loginUser.dto';
+import { FindUserDto } from 'src/user/dtos/users/findUser.dto';
+import { LoginUserDto } from 'src/user/dtos/users/loginUser.dto';
 
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}

@@ -1,9 +1,11 @@
+import HomeComponent from '../Components/Home/Home.component';
 import NavBar from '../NavBar/NavBar';
 
 const Home = () => {
   return (
-    <div>
+    <div className="h-fit">
       <NavBar />
+      <HomeComponent />
     </div>
   );
 };

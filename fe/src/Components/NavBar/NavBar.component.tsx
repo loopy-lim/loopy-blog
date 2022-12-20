@@ -6,7 +6,7 @@ const NavBarComponent = () => {
   const subtitle = '';
 
   return (
-    <div className="w-full px-[10%] py-10 flex justify-between">
+    <div className="w-full px-[10%] py-6 flex justify-between">
       <div className="flex items-center justify-center">
         <Link to="/" className="p-4">
           <div className="text-3xl">Loopy</div>

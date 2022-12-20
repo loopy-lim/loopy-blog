@@ -19,4 +19,4 @@ services:
       - POSTGRES_PASSWORD=root
       - TZ=Asiz/Seoul
     ports:
-      - '5423:5432'
+      - '5432:5432'

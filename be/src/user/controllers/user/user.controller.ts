@@ -18,11 +18,11 @@ export class UserController {
 
   @Get('')
   async getUsers() {
-    return await this.userService.getUsers();
+    return await this.userService.findUsers();
   }
 
   @Get(':id')
-  async findUserById(
+  async getUserById(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<FindUserDto> {
     return await this.userService.findUserById(id);

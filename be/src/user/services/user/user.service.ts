@@ -46,7 +46,7 @@ export class UserService {
     return findUserDto;
   }
 
-  getUsers() {
+  findUsers() {
     return this.userRepository.find();
   }
 

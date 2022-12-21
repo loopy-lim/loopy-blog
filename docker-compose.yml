@@ -20,3 +20,11 @@ services:
       - TZ=Asiz/Seoul
     ports:
       - '5432:5432'
+  # edgedb:
+  #   image: edgedb/edgedb
+  #   environment:
+  #     EDGEDB_SERVER_SECURITY: insecure_dev_mode
+  #   volumes:
+  #     - "./be/dbschema:/dbschema"
+  #   ports:
+  #     - "5656:5656"

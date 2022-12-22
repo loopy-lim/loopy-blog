@@ -4,6 +4,7 @@ import { PostService } from './post.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Post, PostSchema } from 'src/schemas/post.schema';
 import { Author, AuthorSchema } from 'src/schemas/author.schema';
+import { StatusModule } from './status/status.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { Author, AuthorSchema } from 'src/schemas/author.schema';
       { name: Post.name, schema: PostSchema },
       { name: Author.name, schema: AuthorSchema },
     ]),
+    StatusModule,
   ],
   controllers: [PostController],
   providers: [PostService],

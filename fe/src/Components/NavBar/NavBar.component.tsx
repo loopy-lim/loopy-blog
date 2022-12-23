@@ -4,17 +4,17 @@ import { FaRegComment, FaRegHeart } from 'react-icons/fa';
 
 const NavBarComponent = ({
   isWhite,
-  isAbsolute,
+  isFixed,
 }: {
   isWhite: boolean;
-  isAbsolute: boolean;
+  isFixed: boolean;
 }) => {
   const subtitle = '';
 
   return (
     <div
-      className={`w-full px-[5%] py-4 flex justify-between z-50 ${
-        isAbsolute ? 'absolute' : ''
+      className={`w-full px-[5%] py-2 flex justify-between z-50 ${
+        isFixed ? 'fixed' : ''
       } ${isWhite ? 'text-white' : ''}
       backdrop-blur-md`}
     >

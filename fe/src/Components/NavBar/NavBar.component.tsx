@@ -51,7 +51,7 @@ const NavBarComponent = ({
           ''
         )}
         {isPlus ? (
-          <Link to="/" className="p-4">
+          <Link to="/post/write" className="p-4">
             <AiOutlinePlus />
           </Link>
         ) : (

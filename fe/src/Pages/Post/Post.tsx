@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import NavBarComponent from '../../Components/NavBar/NavBar.component';
-import PostComponent from '../../Components/Post/Post.component';
+import PostComponent from '../../Components/Post/PostView/Post.component';
 import PostHomeComponent from '../../Components/Home/PostHome.component';
 import CommentComponent from '../../Components/Comment/Comment.component';
 import ComponentCountComponent from '../../Components/Comment/CommentCount.component';

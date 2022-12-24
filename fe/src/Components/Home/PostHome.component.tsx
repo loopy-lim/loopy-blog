@@ -1,4 +1,4 @@
-import PostCellComponent from '../Post/PostCell.component';
+import PostCellComponent from "../Post/PostView/PostCell.component";
 
 const PostHomeComponent = () => {
 

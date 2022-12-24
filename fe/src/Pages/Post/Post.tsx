@@ -20,10 +20,15 @@ const Post = () => {
 
   return (
     <div className="h-fit">
-      <NavBarComponent isFixed={true} isWhite={isTitleBackgroundHeight} />
+      <NavBarComponent
+        isFixed={true}
+        isTextWhite={isTitleBackgroundHeight}
+        isHeart={true}
+        isComment={true}
+      />
       <PostComponent />
       <div className="translate-y-[100vh]">
-        <ComponentCountComponent countedComment={0}/>
+        <ComponentCountComponent countedComment={0} />
         <CommentComponent />
         <PostHomeComponent />
       </div>

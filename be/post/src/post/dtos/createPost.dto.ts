@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 
 export class CreatePostDto {
   @IsNotEmpty()
@@ -8,6 +8,10 @@ export class CreatePostDto {
   @IsNotEmpty()
   @IsString()
   readonly content: string;
+
+  @IsNotEmpty()
+  @IsUrl()
+  readonly title_image: string;
 
   @IsNotEmpty()
   @IsString()

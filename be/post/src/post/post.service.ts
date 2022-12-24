@@ -28,6 +28,7 @@ export class PostService {
     const createPost = new this.postModel({
       title: createPostDto.title,
       content: createPostDto.content,
+      title_image: createPostDto.title_image,
       author,
     });
     return await createPost.save();
@@ -38,7 +39,11 @@ export class PostService {
     const updatePost = this.postModel.findOne({ _id, deleteAt: null });
     const updatedPostResult = await updatePost
       .updateOne({
-        $set: { title: updatePostDto.title, content: updatePostDto.content },
+        $set: {
+          title: updatePostDto.title,
+          content: updatePostDto.content,
+          title_image: updatePostDto.title_image,
+        },
       })
       .exec();
     return updatedPostResult.modifiedCount === 1;

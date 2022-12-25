@@ -11,6 +11,8 @@
     "dev": "concurrently npm:watch:*",
     "watch:login": "(cd ./be/login && npm start --watch)",
     "watch:post": "(cd ./be/post && npm start --watch)",
-    "watch:image-upload": "(cd ./be/image-upload && node index.js)"
+    "watch:image-upload": "(cd ./be/image-upload && node index.js)",
+    "watch:docker": "docker-compose up",
+    "poststop": "docker-compose stop"
   }
 }

@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: 'postgres:latest'
+    restart: unless-stopped
+    container_name: postgres
+    volumes:
+      - ./be/pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - TZ=Asiz/Seoul
+    ports:
+      - 5432:5432
+  redis:
+    image: redis:alpine
+    command: redis-server --port 6379
+    container_name: redis_boot
+    hostname: redis
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - 6379:6379
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./be/mongodb:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root 
+      - MONGO_INITDB_DATABASE=blog
+  web:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./be/nginx/config/nginx.conf:/etc/nginx/nginx.conf
+      - ./be/nginx/images:/usr/share/nginx/html/images
+    ports:
+      - 80:80

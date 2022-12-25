@@ -1,0 +1,1 @@
+const isDevelopt = develop === process.argv[3]

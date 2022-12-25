@@ -5,10 +5,12 @@ services:
     restart: unless-stopped
     container_name: postgres
     volumes:
+      - ./createDatabase.sql:/docker-entrypoint-initdb.d/createDatabase.sql
       - ./be/pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=root
       - TZ=Asiz/Seoul
+      - POSTGRES_DB=blog
     ports:
       - 5432:5432
   redis:

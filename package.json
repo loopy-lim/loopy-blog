@@ -8,11 +8,13 @@
     "concurrently": "^7.6.0"
   },
   "scripts": {
-    "dev": "concurrently npm:watch:*",
-    "watch:login": "(cd ./be/login && npm start --watch)",
-    "watch:post": "(cd ./be/post && npm start --watch)",
-    "watch:image-upload": "(cd ./be/image-upload && node index.js)",
-    "watch:docker": "docker-compose up",
-    "poststop": "docker-compose stop"
+    "dev": "npm run watch:fe & npm run watch:login & npm run watch:post & npm run watch:image-upload & npm run watch:docker",
+    "watch:fe": "cd ./fe && nohup npm run dev >> ./dev_server.log 2>&1 &",
+    "watch:login": "cd ./be/login && nohup npm start --watch >> ./dev_server.log 2>&1 &",
+    "watch:post": "cd ./be/post && nohup npm start --watch >> ./dev_server.log 2>&1 &",
+    "watch:image-upload": "cd ./be/image-upload nohup  && node index.js >> ./dev_server.log 2>&1 &",
+    "watch:docker": "nohup docker-compose up >> ./dev_server.log 2>&1 &",
+    "kill": "kill -9 $(lsof -t -i:5173,3001,3002,3003) & npm run kill:docker &",
+    "kill:docker": "docker-compose down && docker rm -f $(docker ps -a -q)"
   }
 }
